@@ -64,6 +64,25 @@
 
     
     </style>
+
+    <script>
+      function submit() {
+            let pesan = $('#pesan').val();
+            let nama = $('#nama').val();
+            let temp_html = `
+        <div class="card">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>${pesan}</p>
+                    <footer class="blockquote-footer">${nama}</footer>
+                </blockquote>
+            </div>
+        </div>
+            ` ;
+        $('.mycards').append(temp_html);
+        alert('Data berhasil dimasukkan');
+        }
+    </script>
   </head>
 
   <body>
@@ -76,10 +95,20 @@
         <input
           type="text"
           class="form-control"
-          id="floatingInput"
-          placeholder="Enter your nickname here"
+          id="pesan"
+          placeholder="pesan"
         />
-        <label for="floatingInput">Nickname</label>
+        <label for="floatingInput">Pesan</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="nama"
+          placeholder="nama"
+        />
+        <label for="floatingInput">Nama</label>
       </div>
 
       <div class="form-floating">
@@ -88,7 +117,7 @@
           placeholder="Leave a comment here"
           id="floatingTextarea"
         ></textarea>
-        <label for="floatingTextarea">Fan Message</label>
+        <button onclick="submit()"type="button" class="btn btn-primary">Save</button>
       </div>
       <button type="button" class="btn btn-dark">Leave a fan message</button>
     </div>
